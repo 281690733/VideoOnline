@@ -1,8 +1,9 @@
 {
-  "name": "app-counter",
+  "name": "@netless/community-apps",
   "version": "0.1.0",
   "description": "Template for a Netless Community App",
   "private": true,
+  "homepage": ".",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "files": [
@@ -16,9 +17,25 @@
   "engines": {
     "npm": "^8.0.0"
   },
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.22.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
   "devDependencies": {
     "@netless/fastboard": "^0.3.3",
     "@netless/window-manager": "^0.4.30",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.47",
+    "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
+    "agora-rtc-sdk-ng": "^4.8.2",
+    "react-scripts": "3.4.1",
+    "typescript": "^3.7.5",
     "vite": "^2.9.10",
     "white-web-sdk": "^2.16.24"
   }

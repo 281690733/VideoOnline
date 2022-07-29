@@ -1,36 +1,33 @@
-# Netless App Template
+# 项目介绍
 
-[Netless App 文档](https://github.com/netless-io/window-manager/blob/master/docs/develop-app.md)
+本插件 TicTacToe 是基于 [community-app-template](https://github.com/netless-io/community-app-template) 模版 React 分支开发的 TicTacToe 互动小游戏
 
+![](https://netless-docs.oss-cn-hangzhou.aliyuncs.com/Leo/TicTacToe.gif)
 ## 快速开始
+前置条件：至少需要安装了 `git`、`node 16`、`npm 8`
 
-前置条件：至少需要安装了 `git`、`node 16`、`npm 8`。
+第一步：`git clone git@github.com:Leooeloel/TicTacToe.git`
 
-1.  点击右上角 `Use this template` 生成一个属于你自己的仓库
+第二步：`cd TicTacToe` 创建并打开 .env 填写白板配置信息，参考[配置白板房间](https://github.com/Leooeloel/TicTacToe/tree/react#%E9%85%8D%E7%BD%AE%E7%99%BD%E6%9D%BF%E6%88%BF%E9%97%B4)
 
-    如果需要选用原生以外的模版，请勾上 `Include all branches`
+第三步：下载项目依赖 `npm install`
 
-    > 如果你安装了 [GitHub CLI](https://cli.github.com)，也可以用这个命令一键生成并 clone 本仓库
-    >
-    >     gh repo create your-app-name --template netless-io/community-apps --include-all-branches
+第四步：[community-app-template](https://github.com/netless-io/community-app-template) 不同分支提供了多种脚手架，本 demo 是基于 react 开发
 
-2.  在 .env 文件里配置白板房间 UUID 和 Token
+第五步：运行项目 `npm start`
 
-    请将本目录下的 .env.example 文件复制一份，重命名为 .env 或 .env.local 后，在里面填写必须的白板配置信息。你可以在 [Netless Workshop](https://workshop.netless.link) 申请专用的白板配置。
 
-3.  执行 `npm install` 安装依赖
 
-4.  执行 `npm start` 进行本地开发
+## 配置白板房间
+ 
+ 第一步需要先开启互动白板服务，获取互动白板项目的安全密钥，参考 [开启和配置互动白板服务](https://docs.agora.io/cn/whiteboard/enable_whiteboard?platform=Web)
 
-## 提交到社区 App 列表
+第二步需要获取白板房间 UUID 和 ROOMTOKEN，参考[加入房间](https://docs.agora.io/cn/whiteboard/join_whiteboard_room_web)
 
-开发完 App 后，可以在 [Community Apps](https://github.com/netless-io/community-apps) 仓库提交你的项目，方便更多人发现和使用。
+也可以通过 [白板临时配置环境](https://workshop.netless.link) 来快速获取白板配置环境
 
-## 清单
+## 互动骰子 
 
-- [ ] 添加 .env 或 .env.local
-- [ ] 修改 package.json 里的 `name`，`private` 等字段
-- [ ] (可选) 发布 npm 包
-- [ ] 添加 License
-- [ ] 修改 README
-- [ ] (可选) 添加 Logo
+另外一个插件 [互动骰子](https://github.com/Leooeloel/dice) 是基于 [community-app-template](https://github.com/netless-io/community-app-template) 模版原生分支开发的互动骰子小工具，也供大家参考
+
+![](https://netless-docs.oss-cn-hangzhou.aliyuncs.com/Leo/dice.gif)
