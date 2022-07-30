@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import AgoraRTC, {
-  IAgoraRTCClient, IAgoraRTCRemoteUser, MicrophoneAudioTrackInitConfig, CameraVideoTrackInitConfig, IMicrophoneAudioTrack, ICameraVideoTrack, ILocalVideoTrack, ILocalAudioTrack } from 'agora-rtc-sdk-ng';
+  IAgoraRTCClient, IAgoraRTCRemoteUser, MicrophoneAudioTrackInitConfig, CameraVideoTrackInitConfig, IMicrophoneAudioTrack, ICameraVideoTrack, ILocalVideoTrack, ILocalAudioTrack, IChannelMediaRelayConfiguration } from 'agora-rtc-sdk-ng';
+import { config } from 'process';
 
 export default function useAgora(client: IAgoraRTCClient | undefined)
   :

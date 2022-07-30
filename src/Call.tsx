@@ -3,7 +3,7 @@ import AgoraRTC from 'agora-rtc-sdk-ng';
 import useAgora from './hooks/useAgora';
 import MediaPlayer from './components/MediaPlayer';
 import './Call.css';
-import { Card, Col, Row, Button } from 'antd';;
+import { Card, Col, Row, Button } from 'antd';
 
 const client = AgoraRTC.createClient({ codec: 'h264', mode: 'rtc' });
 
@@ -17,12 +17,11 @@ const contentStyle: React.CSSProperties = {
 
 function Call() {
   const [ appid, setAppid ] = useState('a1f92f56e7f94c57a6c7bfdd867cd461');
-  const [ token, setToken ] = useState('006a1f92f56e7f94c57a6c7bfdd867cd461IABr0RLUKK3cDAhGsu8Qffqe7M2TbCfPZq83CGCYd9Tm09JjSIgAAAAAEACGukDPLPbjYgEAAQAs9uNi');
+  const [ token, setToken ] = useState('006a1f92f56e7f94c57a6c7bfdd867cd461IABVrBNV5V5zLF5tj8pnBcZNTmJOlS5iO7tuxRZss8gtxdJjSIgAAAAAEACGukDPeVTmYgEAAQB5VOZi');
   const [ channel, setChannel ] = useState('');
   const {
     localAudioTrack, localVideoTrack, leave, join, joinState, remoteUsers
   } = useAgora(client);
-
   const onChange = (currentSlide: number) => {
     console.log(currentSlide);
   };
@@ -56,18 +55,6 @@ function Call() {
             <Card title={`remoteVideo(${user.uid})`} bordered={false} cover={<MediaPlayer videoTrack={user.videoTrack} audioTrack={user.audioTrack}></MediaPlayer>}></Card>
             </Col>))}
         </Row>
-      </div>
-      <div className='player-container'>
-      {/* <Carousel afterChange={onChange}>
-        <div style={contentStyle}>
-          <p className='local-player-text'>{localVideoTrack && `localTrack`}{joinState && localVideoTrack ? `(${client.uid})` : ''}</p>
-          <MediaPlayer videoTrack={localVideoTrack} audioTrack={undefined}></MediaPlayer>
-        </div>
-        {remoteUsers.map(user => (<div style={contentStyle} key={user.uid}>
-            <p className='remote-player-text'>{`remoteVideo(${user.uid})`}</p>
-            <MediaPlayer videoTrack={user.videoTrack} audioTrack={user.audioTrack}></MediaPlayer>
-          </div>))}
-      </Carousel> */}
       </div>
     </div>
   );
