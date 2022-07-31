@@ -10,6 +10,7 @@ apps.push({
   onClick: (fastboard) => {
     fastboard.manager.addApp({
       kind: App.kind,
+      src:'',
       options: { title: "开启会议" },
     });
   },

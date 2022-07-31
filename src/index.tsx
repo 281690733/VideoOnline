@@ -24,10 +24,8 @@ const TicTacToe: NetlessApp = {
     const $content = document.createElement("div");
     $content.className = "tic-tac-toe";
     box.mountContent($content);
-
     const root = createRoot($content);
-    root.render(<OpenVideo />);
-
+    root.render(<OpenVideo context={context} />);
     context.emitter.on("destroy", () => {
       root.unmount();
     });
