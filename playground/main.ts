@@ -1,13 +1,14 @@
 import { createFastboard, mount, Theme } from "@netless/fastboard";
 import { get_uid } from "./query";
-import { registering } from "./register";
+import { registering, registering1 } from "./register";
 import "./style.css";
 
 main().catch(console.error);
 
 async function main() {
   await registering;
-
+  await registering1;
+  
   const fastboard = await createFastboard({
     sdkConfig: {
       appIdentifier: import.meta.env.VITE_APPID,
