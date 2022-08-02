@@ -1,6 +1,6 @@
 import type { AppContext } from "@netless/window-manager";
 import React, { useState } from 'react';
-import { message, Upload } from 'antd';
+import { Form, message, Modal, Upload } from 'antd';
 import type { UploadChangeParam } from 'antd/es/upload';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
@@ -10,11 +10,6 @@ export interface AppProps {
     context: AppContext;
 }
 
-const getBase64 = (img: RcFile, callback: (url: string) => void) => {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => callback(reader.result as string));
-    reader.readAsDataURL(img);
-};
 
 const beforeUpload = (file: RcFile) => {
     const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
@@ -28,21 +23,51 @@ const beforeUpload = (file: RcFile) => {
     return isJpgOrPng && isLt2M;
 };
 function UploadImg({ context }: AppProps) {
+    const [fileList, setFileList] = useState<UploadFile[]>();
+    const fileBaseUrl = 'http://localhost:8000/file/'
     const [loading, setLoading] = useState(false);
-    const [imageUrl, setImageUrl] = useState<string>();
+    const [previewVisible, setPreviewVisible] = useState(false);
+    const [previewImage, setPreviewImage] = useState('');
+    const [previewTitle, setPreviewTitle] = useState('');
 
-    const handleChange: UploadProps['onChange'] = (info: UploadChangeParam<UploadFile>) => {
-        if (info.file.status === 'uploading') {
-            setLoading(true);
-            return;
+    const handleChange: UploadProps['onChange'] = async ({ fileList: newFileList }) => {
+        setFileList(fileList);
+        const uploadFiles = [] as Array<UploadFile>
+        fileList?.forEach((file) => {
+            if (file.status === 'done') {
+                const response = file.response;
+                if (response.success) {
+                    file.url = fileBaseUrl + '/' + response.data
+                    uploadFiles.push(file)
+                }
+            }
+        })
+        setFileList(fileList);
+    };
+
+
+    const handleCancel = () => setPreviewVisible(false);
+
+    const handlePreview = async (file: UploadFile) => {
+        if (!file.url && !file.preview) {
+            const response = file.response;
+            if (response.success) {
+                await window.fastboard.insertImage(
+                    file.url = fileBaseUrl + '/' + response.data
+                );
+            }
+            return
         }
-        if (info.file.status === 'done') {
-            // Get this url from response in real world.
-            getBase64(info.file.originFileObj as RcFile, url => {
-                setLoading(false);
-                setImageUrl(url);
-                console.log(url)
-            });
+        
+
+        setPreviewImage(file.url || (file.preview as string));
+        setPreviewVisible(true);
+        setPreviewTitle(file.name || file.url!.substring(file.url!.lastIndexOf('/') + 1));
+        const response = file.response;
+        if (response.success) {
+            await window.fastboard.insertImage(
+                file.url = fileBaseUrl + '/' + response.data
+            );
         }
     };
 
@@ -54,16 +79,21 @@ function UploadImg({ context }: AppProps) {
     );
     return (
         <div>
-            <Upload
-                name="avatar"
-                listType="picture-card"
-                className="avatar-uploader"
-                showUploadList={false}
-                beforeUpload={beforeUpload}
-                onChange={handleChange}
-            >
-                {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-            </Upload>
+            <Form className='OpenVideo-form' layout='inline'>
+                <Upload
+                    action="http://127.0.0.1:8089/api/localStorage/file"
+                    listType="picture-card"
+                    fileList={fileList}
+                    onPreview={handlePreview}
+                    onChange={handleChange}
+                    name="file"
+                >
+                    {fileList ? null : uploadButton}
+                </Upload>
+                <Modal visible={previewVisible} title={previewTitle} footer={null} onCancel={handleCancel}>
+                    <img alt="example" style={{ width: '100%' }} src={previewImage} />
+                </Modal>
+            </Form>
         </div>
     );
 }

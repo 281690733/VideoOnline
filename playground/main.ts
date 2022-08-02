@@ -24,7 +24,6 @@ async function main() {
   const $ui = setup();
 
   const fastboardUI = mount(fastboard, $ui.$whiteboard);
-
   $ui.onReset(() => {
     fastboard.cleanCurrentScene();
     const { manager } = fastboard;
