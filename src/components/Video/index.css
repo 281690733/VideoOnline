@@ -1,0 +1,16 @@
+.OpenVideo{
+    background-color: black;
+}
+.OpenVideo-content{
+    overflow-y: visible;
+}
+.OpenVideo-content-main{
+    overflow-y: visible;
+}
+.foot-button{
+    margin-top: -10px;
+    height: 20px;
+}
+.margin-right{
+    margin-right: 8px;
+}
