@@ -26,5 +26,4 @@ function update_query(set: Record<string, string | undefined>) {
       query.set(key, set[key]!);
     }
   }
-  history.replaceState(null, "", "?" + query.toString());
 }

@@ -4,6 +4,7 @@ import { Form, message, Modal, Upload } from 'antd';
 import type { UploadChangeParam } from 'antd/es/upload';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { SERVICE_URL } from "../../utils";
 
 
 export interface AppProps {
@@ -24,7 +25,6 @@ const beforeUpload = (file: RcFile) => {
 };
 function UploadImg({ context }: AppProps) {
     const [fileList, setFileList] = useState<UploadFile[]>();
-    const fileBaseUrl = 'http://localhost:8000/file/'
     const [loading, setLoading] = useState(false);
     const [previewVisible, setPreviewVisible] = useState(false);
     const [previewImage, setPreviewImage] = useState('');
@@ -37,7 +37,7 @@ function UploadImg({ context }: AppProps) {
             if (file.status === 'done') {
                 const response = file.response;
                 if (response.success) {
-                    file.url = fileBaseUrl + '/' + response.data
+                    file.url = response.data
                     uploadFiles.push(file)
                 }
             }
@@ -51,10 +51,8 @@ function UploadImg({ context }: AppProps) {
     const handlePreview = async (file: UploadFile) => {
         if (!file.url && !file.preview) {
             const response = file.response;
-            if (response.success) {
-                await window.fastboard.insertImage(
-                    file.url = fileBaseUrl + '/' + response.data
-                );
+            if (response.msg == "上传成功") {
+                await window.fastboard.insertImage(response.data);
             }
             return
         }
@@ -64,10 +62,8 @@ function UploadImg({ context }: AppProps) {
         setPreviewVisible(true);
         setPreviewTitle(file.name || file.url!.substring(file.url!.lastIndexOf('/') + 1));
         const response = file.response;
-        if (response.success) {
-            await window.fastboard.insertImage(
-                file.url = fileBaseUrl + '/' + response.data
-            );
+        if (response.msg == "上传成功") {
+            await window.fastboard.insertImage(response.data);
         }
     };
 
@@ -81,7 +77,7 @@ function UploadImg({ context }: AppProps) {
         <div>
             <Form className='OpenVideo-form' layout='inline'>
                 <Upload
-                    action="http://127.0.0.1:8089/api/localStorage/file"
+                    action={`${SERVICE_URL}/file/uploadOneFile`}
                     listType="picture-card"
                     fileList={fileList}
                     onPreview={handlePreview}

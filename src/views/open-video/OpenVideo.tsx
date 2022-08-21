@@ -18,7 +18,7 @@ export interface AppProps {
 function OpenVideo({ context }: AppProps) {
 
     const [appid, setAppid] = useState('a1f92f56e7f94c57a6c7bfdd867cd461');
-    const [token, setToken] = useState('006a1f92f56e7f94c57a6c7bfdd867cd461IAAow1yzPDkP2M9j2+yrnuvjZTCYVuaVXz7OieFTvezSjdJjSIgAAAAAEACGukDPL53mYgEAAQAuneZi');
+    const [token, setToken] = useState('006a1f92f56e7f94c57a6c7bfdd867cd461IAB8xNBaWuNhMWq7S8rz29su7jZcjHhGhwj9EdgmTDl4DtJjSIgAAAAAEACOhaHHUiLxYgEAAQBTIvFi');
     const [channel, setChannel] = useState('123');
 
     const [openVideo, setOpenVideo] = useState(false);

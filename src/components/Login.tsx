@@ -5,7 +5,7 @@ export interface LoginProps {
   onLogin: () => void;
 }
 
-export const Login: FC<LoginProps> = ({ onLogin }) => {
+export const Login1: FC<LoginProps> = ({ onLogin }) => {
   return (
     <div className="ttt-login">
       <button className="ttt-login-start" onClick={onLogin}>
