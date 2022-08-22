@@ -60,5 +60,5 @@
     "vite": "^2.9.10",
     "white-web-sdk": "^2.16.24"
   },
-  "proxy": "http://localhost:8081"
+  "proxy": "http://43.138.66.193:8081"
 }
