@@ -40,14 +40,14 @@
 启动前请将
 
 src\components\Video\index.tsx 中的join方法中此三项修改为你在声网中申请项目的
+![image-20220824102229670](https://user-images.githubusercontent.com/61697228/186309993-86c486ac-a301-4f8b-92a6-7f5a4f089650.png)
 
-![image-20220824102229670](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220824102229670.png)
 
 ## 展示
 
 本地启动后登陆页面展示：http://localhost:3000/
+![image-20220824102529220](https://user-images.githubusercontent.com/61697228/186310116-1a6b0551-6810-4c40-8a00-30c4fea2f155.png)
 
-![image-20220824102529220](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220824102529220.png)
 
 用户名：admin 或者 fs
 
@@ -57,16 +57,18 @@ src\components\Video\index.tsx 中的join方法中此三项修改为你在声网
 
 登陆完成后进入首页
 
-![image-20220824102809185](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220824102809185.png)
+![image-20220824102809185](https://user-images.githubusercontent.com/61697228/186310179-7723384a-e19e-400f-85b1-ddcd66f71374.png)
+
 
 目前开发的功能有：加入白板，创建白板，我的白板，退出登陆
 
 点击创建白板
 
-![image-20220824104300314](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220824104300314.png)
+![image-20220824104300314](https://user-images.githubusercontent.com/61697228/186310242-c63a5bfd-7e57-4882-b36b-bbfa12d10349.png)
+
 
 返回首页
+![image-20220824104514215](https://user-images.githubusercontent.com/61697228/186310286-d90d1d6e-1bab-4e72-9246-b9aba79e4abf.png)
 
-![image-20220824104514215](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220824104514215.png)
+![image-20220824104712226](https://user-images.githubusercontent.com/61697228/186310403-7d378cf4-0fa6-461d-a5df-5f92baa4b387.png)
 
-![image-20220824104712226](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220824104712226.png)
