@@ -74,7 +74,7 @@ export default class Video extends Component<Props, State> {
     join = async (appid: string, channel: string, token?: string, uid?: string | number | null) => {
         if (!this.client) return;
         const [microphoneTrack, cameraTrack] = await this.createLocalTracks();
-        await this.client.join(appid, channel, token || null);
+        await this.client.join(appid, "1234", "007eJxTYMg9eOaQzb3Wp0dMNut13nq+reySxD5rmYprBl4C15692ZauwJBomGZplGZqlmqeZmmSbGqeaJZsnpSWkmJhZp6cYmJm2NbHmsz2gC15h6UZEyMDBIL4LAyGRsYmDAwAN0Ahuw==");
         await this.client.publish([microphoneTrack, cameraTrack]);
         (window as any).client = this.client;
         (window as any).videoTrack = cameraTrack;
